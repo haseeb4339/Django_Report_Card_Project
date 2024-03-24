@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from card.views import get_students
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('students/', get_students, name='students' ),
 ]
