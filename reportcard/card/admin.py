@@ -5,5 +5,9 @@ from .models import Student, StudentID, Subject, SubjectMarks, Department
 admin.site.register(Student)
 admin.site.register(StudentID)
 admin.site.register(Subject)
-admin.site.register(SubjectMarks)
+
+class SubjectMarksAdmin(admin.ModelAdmin):
+    list_display = ['student', 'subject', 'marks']
+
+admin.site.register(SubjectMarks, SubjectMarksAdmin)
 admin.site.register(Department)
