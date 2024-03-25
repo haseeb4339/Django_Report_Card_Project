@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Student
+from .models import Student, SubjectMarks
 from django.core.paginator import Paginator
 from django.db.models import Q
 
@@ -24,5 +24,10 @@ def get_students(request):
     return render(request, 'report/student.html', {'queryset': page_obj})
 
 
+
+def see_marks(request, student_id):
+
+    queryset = SubjectMarks.objects.filter(student__student_id__stud_id=student_id)
+    return render(request, 'report/see_marks.html', {'queryset': queryset})
 
 
